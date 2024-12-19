@@ -1,15 +1,144 @@
-#div1{
-    background-color: blue;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    margin: 10px;
+.montserrat {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 
-#btStart{
-    margin: 10px;
+*{
+    font-family: "Montserrat", serif;
+}
+body {
+    background-color: #f7f7f7; /* Фон страницы */
+    font-family: 'montserrat';
+    
 }
 
-#btStop{
-    margin: 10px;
+.div1 {
+    margin-left: 20px;
+    width: 400px; /* Фиксированная ширина */
+    height: 400px; /* Равна ширине, чтобы получился квадрат */
+    background-color: #ffffff; /* Светлый фон */
+    border-radius: 10px; /* Закругляем углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    padding: 20px; /* Отступы внутри */
+    position: relative; /* Для абсолютного позиционирования reset */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Элементы выравнены вертикально */
+    justify-content: space-between; /* Пространство между элементами */
+  
+}
+
+
+/* Поле ввода */
+.div1 input {
+    
+    padding: 12px 10px; /* Отступы внутри поля */
+    background-color:#f5f5f5;
+    border: 2px solid #cccccc; /* Тонкая граница */
+    border-radius: 8px; /* Закруглённые углы */
+    font-size: 13px; /* Размер текста */
+    outline: none; /* Убираем стандартный фокус */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Анимация */
+    
+}
+
+/* Поле ввода при фокусе */
+.div1 input:focus {
+    border-color: #007BFF; /* Синий цвет границы */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Подсветка */
+}
+
+/* Кнопка "добавить задачу" */
+.div1 #add-task-bt {
+    width:70px; 
+    height: 35px; 
+    border: none;
+    border-radius: 8px; /* Закруглённые углы */
+    background-color: #3498db; /* Синий фон */
+    color: white; /* Белый текст */
+    font-size: 14px; /* Размер текста */
+    cursor: pointer; /* Указатель мыши */
+    margin-bottom: 10px;
+    align-self: center;
+    transition: background-color 0.3s;
+}
+
+/* Кнопка при наведении */
+.div1 #add-task-bt:hover {
+    background-color: #2980b9; /* Более тёмный синий */
+}
+
+/* Список задач */
+ul {
+    list-style-type: none; /* Убираем маркеры */
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Шрифт */
+    overflow-y: auto; /* Прокрутка, если задач много */
+    flex-grow: 1; /* Список заполняет оставшееся место */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Стиль для задач */
+li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* Невыполненные задачи - прозрачный круг */
+li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid black; /* Граница круга */
+    border-radius: 50%;
+    background-color: transparent; /* Прозрачный фон */
+    transition: background-color 0.2s;
+}
+
+/* Выполненные задачи */
+li.completed::before {
+    background-color: black;
+}
+
+li.completed {
+    color: grey; /* Серый текст */
+    text-decoration: line-through; /* Зачёркивание */
+}
+
+/* Кнопка reset */
+.div1 #reset-bt {
+    position: absolute;
+    bottom: 20px; /* Устанавливаем у самого низа */
+    left: 50%; /* Центруем по горизонтали */
+    transform: translateX(-50%);
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e74c3c; /* Красный фон */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Кнопка reset при наведении */
+.div1 #reset-bt:hover {
+    background-color: #c0392b; /* Более тёмный красный */
+}
+
+#container {
+    display: flex; /* Включаем Flexbox */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    
 }
